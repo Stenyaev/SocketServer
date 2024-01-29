@@ -105,7 +105,7 @@ public class JSONServer {
 
                     return Resp.RESPONSE_GET_EV_STATE.getResp();
                 } else {
-                    return ("Невалидный запрос");
+                    return ("Невалидные значения в запросе");
                 }
 
             } catch (JSONException e1) {
@@ -128,7 +128,7 @@ public class JSONServer {
 
                         return Resp.RESPONSE_GET_PARAMETER.getResp();
                     } else {
-                        return ("Невалидный запрос");
+                        return ("Невалидные значения в запросе");
                     }
 
                 } catch (JSONException e2) {
@@ -151,7 +151,7 @@ public class JSONServer {
 
                             return Resp.RESPONSE_GET_STATE.getResp();
                         } else {
-                            return ("Невалидный запрос");
+                            return ("Невалидные значения в запросе");
                         }
 
 
