@@ -21,7 +21,6 @@ public class JSONServer {
         this.port = port;
         serverSocket = new ServerSocket(port);
         System.out.println("JSONServer подключен к порту: " + port);
-
     }
 
     public void accept() throws IOException {
