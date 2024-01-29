@@ -157,7 +157,6 @@ public class JSONServer {
 
 
                     } catch (JSONException e3) {
-//                        System.out.println("Невалидный запрос");
                         return ("Невалидный запрос");
                     }
                 }
