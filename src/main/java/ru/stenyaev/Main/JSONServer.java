@@ -1,11 +1,8 @@
 package ru.stenyaev.Main;
 
-//import model.*;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import ru.stenyaev.Main.enums.Resp;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -14,15 +11,11 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-/**
- */
 public class JSONServer {
-
 
     private ServerSocket serverSocket;
     private int port;
     public static int clients = 0;
-
 
     public void establish(int port) throws IOException {
         this.port = port;
@@ -30,7 +23,6 @@ public class JSONServer {
         System.out.println("JSONServer подключен к порту: " + port);
 
     }
-
 
     public void accept() throws IOException {
         while (true) {
@@ -73,28 +65,17 @@ public class JSONServer {
             socket.close();
         }
 
-
-        /**
-         * use the JSON Protocol to receive a json object as
-         * String from the client and reconstructs that object
-         * @return JSONObejct with the same state (data) as
-         * the JSONObject the client sent as a String msg.
-         * @throws IOException
-         */
         public JSONObject receiveJSON() throws IOException {
             InputStream in = socket.getInputStream();
             ObjectInputStream i = new ObjectInputStream(in);
 
-//            JSONObject line = null;
             String line = null;
             try {
-//                line = (JSONObject) i.readObject();
                 line = (String) i.readObject();
 
             } catch (ClassNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-
             }
 
             JSONObject jsonObject = new JSONObject(line);
@@ -181,18 +162,7 @@ public class JSONServer {
                     }
                 }
             }
-
-
-////            String name = jsonObject.getString("name");
-//            String name = jsonObject.getString("getEvState");
-//            System.out.println(name);
-//
-//            String first = jsonObject.getJSONObject("arr").getString("a");
-//            System.out.println(first);
-
         }
-
-
 
         public void sendJSON(JSONObject jsonObject) throws IOException {
 
@@ -205,9 +175,7 @@ public class JSONServer {
             } else {
                 o.writeObject(validator(jsonObject));
                 System.out.println("Отправлено с сервера клиенту: " + validator(jsonObject));
-
             }
-
             out.flush();
         }
     }
