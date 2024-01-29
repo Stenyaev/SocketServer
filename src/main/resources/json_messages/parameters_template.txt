@@ -1,0 +1,5 @@
+address
+	addressType: STANDART, UNIT, GROUP
+	value: 1,2...64, CCS,GBT,CHADEMO
+getEvState
+	soc: 0,1...100
